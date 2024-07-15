@@ -13,8 +13,8 @@
 /.next/
 /out/
 
-# production
 /build
+package-lock.json
 
 # misc
 .DS_Store
