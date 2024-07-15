@@ -22,7 +22,7 @@ const Header = () => {
         setAnchorElUser(null);
     };
     return (
-        <div className="header-2 fixed  w-full border">
+        <div className="header-2 fixed  w-full border z-50">
             <nav className="bg-white py-2 md:py-4">
                 <div className="container px-4 mx-auto md:flex md:items-center md:justify-between">
 

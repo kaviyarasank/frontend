@@ -10,7 +10,7 @@ const Sidebar = () => {
             <div className="flex flex-col gap-1 p-3 mt-3">
                 <Link href={'/'} className="flex items-start gap-2 text-[#364152] bg-[#E0E0E0] p-3 font-semibold rounded-lg">
                 <Image src={EarthImg} alt="EarthImg" className=""/>
-                Dashboard</Link>
+                Product Table</Link>
             </div>
         </aside>
     )
