@@ -11,8 +11,9 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import Loader from '@/components/loader';
+import { getAccessToken } from '@/utils';
 
 function Copyright(props: any) {
     return (
@@ -67,14 +68,25 @@ export default function Login() {
                 if (response?.token) {
                     sessionStorage.setItem("@frontend_test", response?.token)
                     router.push("/")
+                }else{
+                    setError("password", {
+                        type: "manual",
+                        message: response?.message ?? "Invalid credentials",
+                      })
                 }
             })
             .catch((error: any) => {
                 setLoader(false)
-
             })
     };
 
+    useLayoutEffect(() => {
+        const isAuth = getAccessToken();
+        if(isAuth){
+            router.push("/")
+        }
+      }, [router])
+      
 
     return (
         <ThemeProvider theme={defaultTheme}>
